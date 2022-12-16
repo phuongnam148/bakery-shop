@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="registration-form mt-2 px-4">
+        <h1 class="mb-4">Thêm Sản Phẩm</h1>
+        <form method="post" action="/admin/post-product" enctype="multipart/form-data">
+            <div class="form-group form-floating">
+                <input type="text" class="form-control item" name="name" id="name" placeholder="Tên sản phẩm" required>
+                <label for="name">Tên sản phẩm</label>
+            </div>
+            <div class="form-group form-floating">
+                <input type="number" class="form-control item" name="price" id="price" placeholder="Giá sản phẩm"
+                    required>
+                <label for="price">Giá sản phẩm</label>
+            </div>
+            <div class="form-goup form-floating">
+                <input type="text" class="form-control item" name="imgURL" id="imgURL" placeholder="Url Hình" required>
+                <label for="imgURL">Url Hình</label>
+            </div>
+            <div class="form-group mt-3 form-floating">
+                <textarea style="height: 180px" name="detail" id="detail" class="form-control item"
+                    aria-label="With textarea" placeholder="Mô tả" required></textarea>
+                <label for="detail">Mô tả</label>
+            </div>
+
+            <select class="form-select item" name="idCat" id="idCat" required>
+                <option value="">Loại sẩn phẩm</option>
+                <% for (let c of categorys) { %>
+                    <option value="<%= c.id %>">
+                        <%= c.name%>
+                    </option>
+                    <% } %>
+            </select>
+            <!-- submit bnt -->
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary">Thêm</button>
+            </div>
+        </form>
+
+    </div>
+</div>

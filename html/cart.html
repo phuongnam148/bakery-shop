@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="../src/public//assets/img/favicon.png" rel="icon">
+    <link href="../src/public//assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../src/public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../src/public/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../src/public/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../src/public/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../src/public/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../src/public/assets/css/main.css" rel="stylesheet">
+
+    <!-- =======================================================
+  * Template Name: Yummy - v1.2.1
+  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div  class="container d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1>FRESH <span> GARDEN</span></h1>
+            </a>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li class="dropdown"><a href="#menu"><span>Sản phẩm</span> <i
+                                class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <ul id="category">
+
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#chefs">Tin tức</a></li>
+
+                    <li><a href="#contact">Liên hệ</a></li>
+                    <li><a href="cart.html">Giỏ hàng</a></li>
+
+                </ul>
+            </nav><!-- .navbar -->
+
+            <a class="btn-book-a-table" href="#book-a-table">Đặt mua ngay</a>
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+        </div>
+    </header><!-- End Header -->
+
+
+    <!-- ======= Hero Section ======= -->
+    <div class="container pt-4" id="cart" style="max-width: 60%;">
+        <nav style="margin-top: 80px;">
+            <div>
+                <a href="index.html"><i class="fa fa-angle-left"></i> Tiếp tục tìm kiếm sản phẩm</a>
+            </div>
+            <div>
+                Giỏ hàng của bạn
+            </div>
+        </nav>
+        <div id="tblcart" style="max-width: 50%; margin: auto;">
+        </div>
+    
+        <hr>
+        <div class="ma-khuyen-mai">
+            - Nhập mã khuyến mại (nếu có):
+            <label for="">
+                <input type="text">
+                <input type="button" name="" id="" value="Áp dụng">
+            </label>
+        </div>
+    
+        <hr>
+    
+        <div class="tong-tien">
+            <div>
+                <p>- Mã giảm giá:</p>
+                <p>- Tổng tiền:</p>
+            </div>
+    
+            <div id="right" align='right'>
+                <p>0 ₫</p>
+                <div id="tongtien" style="display: none;"></div>
+                <span id="tong-tien"></span>
+            </div>
+        </div>
+        <hr>
+    
+        <div class="thong-tin-mua-hang">
+            <h2>Thông tin mua hàng</h2>
+            <p>
+                (Bạn cần nhập đầy đủ các trường thông tin có dấu *)
+            </p>
+    
+            <form action="">
+                <div class="input-row">
+                    <div class="input-col">
+                        <div class="input-control">
+                            <input name="Name" id="fullName" type="text" placeholder="Họ và tên *" data-required="1"
+                                pattern="/(\w|\s|[\.\'-])+/" required>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="input-row">
+                    <div class="input-col">
+                        <div class="input-control">
+                            <input name="Phone" id="phone" type="tel" placeholder="Số điện thoại *" pattern="0\d{9,10}"
+                                required>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="input-row">
+                    <div class="input-col">
+                        <div class="input-control">
+                            <input name="City" type="tel" placeholder="TP HCM *" data-required="1" readonly>
+                        </div>
+                    </div>
+                    <div class="input-col">
+                        <div class="input-control">
+                            <!-- <input name="quan" type="tel" placeholder="Quận/Huyện *" data-required="1"> -->
+                            <select id="SystemDistrictID" name="SystemDistrictID" placeholder="Quận/Huyện *"
+                                data-required="1">
+                                <option value="">Quận/Huyện</option>
+                                <option value="552">Quận 1</option>
+                                <option value="553">Quận 12</option>
+                                <option value="554">Quận Thủ Đức</option>
+                                <option value="555">Quận 9</option>
+                                <option value="556">Quận Gò Vấp</option>
+                                <option value="557">Quận Bình Thạnh</option>
+                                <option value="558">Quận Tân Bình</option>
+                                <option value="559">Quận Tân Phú</option>
+                                <option value="560">Quận Phú Nhuận</option>
+                                <option value="561">Quận 2</option>
+                                <option value="562">Quận 3</option>
+                                <option value="563">Quận 10</option>
+                                <option value="564">Quận 11</option>
+                                <option value="565">Quận 4</option>
+                                <option value="566">Quận 5</option>
+                                <option value="567">Quận 6</option>
+                                <option value="568">Quận 8</option>
+                                <option value="569">Quận Bình Tân</option>
+                                <option value="570">Quận 7</option>
+                                <option value="571">Huyện Củ Chi</option>
+                                <option value="572">Huyện Hóc Môn</option>
+                                <option value="573">Huyện Bình Chánh</option>
+                                <option value="574">Huyện Nhà Bè</option>
+                                <option value="575">Huyện Cần Giờ</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="input-row">
+                    <div class="input-col">
+                        <div class="input-control">
+                            <input name="Address" id="address" type="text" placeholder="Địa chỉ nhận hàng *"
+                                data-required="1" required>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="input-row">
+                    <div class="input-col">
+                        <div class="input-control">
+                            <input name="Email" id="email" type="email" placeholder="Email *" required>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="input-row">
+                    <div class="input-col">
+                        <div class="input-control">
+                            <textarea name="Note" placeholder="Ghi chú" spellcheck="false" data-minlength="15"
+                                style="height: 70px; overflow-y: hidden;"></textarea>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="input-row">
+                    <div class="input-button-tts ">
+                        <button type="button" onclick="submitBtn()" value="send">XÁC NHẬN VÀ ĐẶT HÀNG</button>
+                    </div>
+                </div>
+            </form>
+    
+    
+    
+        </div>
+    </div>
+    
+    
+    <script>
+        const numberFormat = new Intl.NumberFormat("vi-VN", {
+            style: "currency",
+            currency: "VND",
+        });
+    
+        var cart = JSON.parse(localStorage.getItem("cart"))
+    
+        if (cart) {
+            var tongTien = 0;
+            cart.forEach((element, index) => {
+                console.log(element);
+                tongTien += element.price * element.quatity
+                document.querySelector('#tblcart').innerHTML += `
+                    <div class="module">
+                    <div class="module-right">
+                        <img src="${element.image}" alt="">
+                        </div>
+                        <div class="module-left">
+                            <button class="btn btn-dark" id="closeBtn" onclick="deleteProd(${index})" ><i class="fa fa-times"></i></button>  </p>
+                            <div class="module-info">
+                            <p><strong>${element.name}</strong>
+                                <p class="price"> ${numberFormat.format(element.price)}</p>
+                                </div>
+                                
+                                <div class="control">
+                                    <p>
+                                        <Strong  >Chọn số lượng</Strong>
+                                        </p>
+                                        <label for="">
+                                            <button class="btn btn-light" type="button" id="btnMinutes" onclick="btnMinutes('1',${element.price},this)"> - </button>
+                                            <input class="btn btn-light" id="so-luong" name="Number" type="input" value="${element.quatity}" >
+                                            <button class="btn btn-light" type="button" id="btnAdd" onclick="btnAdd('${element.price}',this)"> + </button>
+                                            </label>
+                                            </div>
+                    </div>
+        
+                </div>`
+            });
+            document.getElementById('tongtien').innerHTML = tongTien
+            document.getElementById('tongtien').nextElementSibling.innerHTML = numberFormat.format(tongTien);
+        }
+    
+        function submitBtn() {
+            var phonePattern = /0\d{9,10}/;
+            var emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+    
+    
+            var name = document.getElementById("fullName").value.trim();
+            var phone = document.getElementById("phone").value.trim();
+            var address = document.getElementById("address").value.trim();
+            var email = document.getElementById("email").value.trim();
+            if (name && phonePattern.test(phone) && address && emailPattern.test(email)) {
+    
+                var donhang = {
+                    "customer_name": name,
+                    "customer_address": address,
+                    "customer_email": email,
+                    "customer_phone": phone,
+                    "create_date": new Date().toISOString().slice(0, 10),
+                    "status": "Chờ xác nhận"
+                }
+                // console.log(donhang)
+                urlOrders = "http://localhost:3000/orders";
+    
+                PostItem(urlOrders, donhang).then(res => res.json())
+                    .then(data => {
+                        LuuChiTietDonHang(data.id)
+                        console.log(data)
+                        alert("Đặt hàng thành công!");
+                    })
+            }
+        }
+    
+        function LuuChiTietDonHang(order_id) {
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            cart.forEach(element => {
+                let objSP = {
+                    "order_id": order_id,
+                    "product_id": element.id,
+                    "quantity": element.quatity,
+                    "unti_price": element.price
+                }
+                url_Order_detail = "http://localhost:3000/order_detail";
+                PostItem(url_Order_detail, objSP).then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        // alert("Đặt hàng thành công!");
+                    })
+    
+            });
+        }
+    
+        function deleteProd(index) {
+            if (!confirm('Bạn muốn xoá sản phẩm')) return
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            location.reload();
+        }
+    
+        function btnAdd(price, btn) {
+            var oldPrice = document.getElementById('tongtien').innerHTML
+            var input = btn.previousSibling.previousSibling
+            if (input.innerHTML == null) {
+                input.value == 1;
+            }
+            input.value++
+            var newPrice = Number(oldPrice) + Number(price);
+            console.log(newPrice)
+    
+            // console.log(newPrice);
+    
+            // const format = newPrice.toString.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            document.getElementById('tongtien').innerHTML = newPrice
+            document.getElementById("tong-tien").innerHTML = numberFormat.format(newPrice)
+        }
+        function btnMinutes(min, price, btn) {
+            var oldPrice = document.getElementById('tongtien').innerHTML
+    
+            var input = btn.nextElementSibling
+            console.log(input)
+            var soLuong = parseInt(input.value) - 1;
+    
+            if (soLuong < parseInt(min)) {
+                soLuong = min;
+            } else {
+                input.value = soLuong;
+                var newPrice = Number(oldPrice) - Number(price);
+                const numberFormat = new Intl.NumberFormat("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                });
+                document.getElementById('tongtien').innerHTML = newPrice
+                document.getElementById("tong-tien").innerHTML = numberFormat.format(newPrice)
+            }
+    
+    
+        }
+    </script>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-lg-3 col-md-6  d-flex">
+                    <a href="#">
+                        <h4>Hướng dẫn mua hàng, thanh toán</h4>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links d-flex">
+                    <a href="#">
+                        <h4>Chính sách </h4>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links d-flex">
+                    <a href="#">
+                        <h4>Điều khoản dịch vụ</h4>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Theo dõi Fresh Garden</h4>
+                    <div class="social-links d-flex">
+                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
+                Designed by NLPN. PS19516
+            </div>
+        </div>
+
+    </footer><!-- End Footer -->
+    <!-- End Footer -->
+
+
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="../src/public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../src/public/assets/vendor/aos/aos.js"></script>
+    <script src="../src/public/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../src/public/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="../src/public/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../src/public/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="../src/public/assets/js/main.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

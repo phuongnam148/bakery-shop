@@ -1,0 +1,64 @@
+<section class="py-5 ">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+
+            <div class="col-md-6">
+                <a href="<%=product.imgURL%>" class="glightbox"><img src="<%=product.imgURL%>"
+                        class="menu-img img-fluid" alt=""></a>
+            </div>
+            <div class="col-md-6">
+                <!-- <div class="small mb-1">SKU: BST-498</div> -->
+                <% for (let c of category) { %>
+                    <% if(c.id==product.cat_id) { %>
+                        <a class="display-8 fw-bolder" href="/product/cat/<%=c.id%>">
+                            <%= c.name %>
+                        </a>
+                        <% } %>
+                            <% } %>
+                                <h4 class="display-8 fw-bolder mt-2">
+                                    <%= product.name %>
+                                </h4>
+                                <div class="fs-5 mb-5 menu-item">
+                                    <!-- <span class="text-decoration-line-through">$45.00</span> -->
+                                    <p class="price">
+                                        <%= product.price.toLocaleString('vi') %> VNĐ
+                                    </p>
+                                </div>
+                                <p class="lead">
+                                    <%= product.detail %>
+                                </p>
+                                <div class="d-flex ">
+                                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1"
+                                        style="max-width: 3rem" />
+
+                                    <button type="button" class="btn-book-a-table" id="addBtn"
+                                        style="border: 1px solid red;"
+                                        onclick="themVaoGio('<%=product.id%>','<%=product.name%>','<%=product.price%>','<%=product.imgURL%>')">
+                                        <i class="bi-cart-fill me-1"></i>
+                                        Thêm vào giỏ hàng
+                                    </button>
+                                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Related items section-->
+
+<script>
+    function themVaoGio(id, ten, gia, hinh) {
+        // console.log(id, ten, gia, hinh, km);
+        var cart = JSON.parse(localStorage.getItem("cart"));
+        if (cart == null) {
+            cart = [];
+            cart.push({ id: id, name: ten, price: gia, image: hinh, quatity: 1 });
+        } else {
+            let item = cart.find(item => item.id === id)
+            if (item) item.quatity++
+            else cart.push({ id: id, name: ten, price: gia, image: hinh, quatity: 1 })
+        };
+        localStorage.setItem("cart", JSON.stringify(cart))
+        alert("Đã thêm vào giỏ hàng")
+    }
+
+
+</script>

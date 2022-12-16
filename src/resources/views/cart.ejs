@@ -1,0 +1,282 @@
+<div class="container pt-4" id="cart">
+    <nav style="margin-top: 80px;">
+        <div>
+            <a href="index.html"><i class="fa fa-angle-left"></i> Tiếp tục tìm kiếm sản phẩm</a>
+        </div>
+        <div>
+            Giỏ hàng của bạn
+        </div>
+    </nav>
+    <div id="tblcart" style="max-width: 50%; margin: auto;">
+    </div>
+
+    <hr>
+    <div class="ma-khuyen-mai">
+        - Nhập mã khuyến mại (nếu có):
+        <label for="">
+            <input type="text">
+            <input type="button" name="" id="" value="Áp dụng">
+        </label>
+    </div>
+
+    <hr>
+
+    <div class="tong-tien">
+        <div>
+            <p>- Mã giảm giá:</p>
+            <p>- Tổng tiền:</p>
+        </div>
+
+        <div id="right" align='right'>
+            <p>0 ₫</p>
+            <div id="tongtien" style="display: none;"></div>
+            <span id="tong-tien"></span>
+        </div>
+    </div>
+    <hr>
+
+    <div class="thong-tin-mua-hang">
+        <h2>Thông tin mua hàng</h2>
+        <p>
+            (Bạn cần nhập đầy đủ các trường thông tin có dấu *)
+        </p>
+
+        <form action="">
+            <div class="input-row">
+                <div class="input-col">
+                    <div class="input-control">
+                        <input name="Name" id="fullName" type="text" placeholder="Họ và tên *" data-required="1"
+                            pattern="/(\w|\s|[\.\'-])+/" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-col">
+                    <div class="input-control">
+                        <input name="Phone" id="phone" type="tel" placeholder="Số điện thoại *" pattern="0\d{9,10}"
+                            required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-col">
+                    <div class="input-control">
+                        <input name="City" type="tel" placeholder="TP HCM *" data-required="1" readonly>
+                    </div>
+                </div>
+                <div class="input-col">
+                    <div class="input-control">
+                        <!-- <input name="quan" type="tel" placeholder="Quận/Huyện *" data-required="1"> -->
+                        <select id="SystemDistrictID" name="SystemDistrictID" placeholder="Quận/Huyện *"
+                            data-required="1">
+                            <option value="">Quận/Huyện</option>
+                            <option value="552">Quận 1</option>
+                            <option value="553">Quận 12</option>
+                            <option value="554">Quận Thủ Đức</option>
+                            <option value="555">Quận 9</option>
+                            <option value="556">Quận Gò Vấp</option>
+                            <option value="557">Quận Bình Thạnh</option>
+                            <option value="558">Quận Tân Bình</option>
+                            <option value="559">Quận Tân Phú</option>
+                            <option value="560">Quận Phú Nhuận</option>
+                            <option value="561">Quận 2</option>
+                            <option value="562">Quận 3</option>
+                            <option value="563">Quận 10</option>
+                            <option value="564">Quận 11</option>
+                            <option value="565">Quận 4</option>
+                            <option value="566">Quận 5</option>
+                            <option value="567">Quận 6</option>
+                            <option value="568">Quận 8</option>
+                            <option value="569">Quận Bình Tân</option>
+                            <option value="570">Quận 7</option>
+                            <option value="571">Huyện Củ Chi</option>
+                            <option value="572">Huyện Hóc Môn</option>
+                            <option value="573">Huyện Bình Chánh</option>
+                            <option value="574">Huyện Nhà Bè</option>
+                            <option value="575">Huyện Cần Giờ</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="input-row">
+                <div class="input-col">
+                    <div class="input-control">
+                        <input name="Address" id="address" type="text" placeholder="Địa chỉ nhận hàng *"
+                            data-required="1" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-col">
+                    <div class="input-control">
+                        <input name="Email" id="email" type="email" placeholder="Email *" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-col">
+                    <div class="input-control">
+                        <textarea name="Note" placeholder="Ghi chú" spellcheck="false" data-minlength="15"
+                            style="height: 70px; overflow-y: hidden;"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-button-tts ">
+                    <button type="button" onclick="submitBtn()" value="send">XÁC NHẬN VÀ ĐẶT HÀNG</button>
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+</div>
+
+
+<script>
+    const numberFormat = new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: "VND",
+    });
+
+    var cart = JSON.parse(localStorage.getItem("cart"))
+
+    if (cart) {
+        var tongTien = 0;
+        cart.forEach((element, index) => {
+            console.log(element);
+            tongTien += element.price * element.quatity
+            document.querySelector('#tblcart').innerHTML += `
+                <div class="module">
+                <div class="module-right">
+                    <img src="${element.image}" alt="">
+                    </div>
+                    <div class="module-left">
+                        <button class="btn btn-dark" id="closeBtn" onclick="deleteProd(${index})" ><i class="fa fa-times"></i></button>  </p>
+                        <div class="module-info">
+                        <p><strong>${element.name}</strong>
+                            <p class="price"> ${numberFormat.format(element.price)}</p>
+                            </div>
+                            
+                            <div class="control">
+                                <p>
+                                    <Strong  >Chọn số lượng</Strong>
+                                    </p>
+                                    <label for="">
+                                        <button class="btn btn-light" type="button" id="btnMinutes" onclick="btnMinutes('1',${element.price},this)"> - </button>
+                                        <input class="btn btn-light" id="so-luong" name="Number" type="input" value="${element.quatity}" >
+                                        <button class="btn btn-light" type="button" id="btnAdd" onclick="btnAdd('${element.price}',this)"> + </button>
+                                        </label>
+                                        </div>
+                </div>
+    
+            </div>`
+        });
+        document.getElementById('tongtien').innerHTML = tongTien
+        document.getElementById('tongtien').nextElementSibling.innerHTML = numberFormat.format(tongTien);
+    }
+
+    function submitBtn() {
+        var phonePattern = /0\d{9,10}/;
+        var emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+
+        var name = document.getElementById("fullName").value.trim();
+        var phone = document.getElementById("phone").value.trim();
+        var address = document.getElementById("address").value.trim();
+        var email = document.getElementById("email").value.trim();
+        if (name && phonePattern.test(phone) && address && emailPattern.test(email)) {
+
+            var donhang = {
+                "customer_name": name,
+                "customer_address": address,
+                "customer_email": email,
+                "customer_phone": phone,
+                "create_date": new Date().toISOString().slice(0, 10),
+                "status": "Chờ xác nhận"
+            }
+            // console.log(donhang)
+            urlOrders = "http://localhost:3000/orders";
+
+            PostItem(urlOrders, donhang).then(res => res.json())
+                .then(data => {
+                    LuuChiTietDonHang(data.id)
+                    console.log(data)
+                    alert("Đặt hàng thành công!");
+                })
+        }
+    }
+
+    function LuuChiTietDonHang(order_id) {
+        let cart = JSON.parse(localStorage.getItem("cart"));
+        cart.forEach(element => {
+            let objSP = {
+                "order_id": order_id,
+                "product_id": element.id,
+                "quantity": element.quatity,
+                "unti_price": element.price
+            }
+            url_Order_detail = "http://localhost:3000/order_detail";
+            PostItem(url_Order_detail, objSP).then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    // alert("Đặt hàng thành công!");
+                })
+
+        });
+    }
+
+    function deleteProd(index) {
+        if (!confirm('Bạn muốn xoá sản phẩm')) return
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        location.reload();
+    }
+
+    function btnAdd(price, btn) {
+        var oldPrice = document.getElementById('tongtien').innerHTML
+        var input = btn.previousSibling.previousSibling
+        if (input.innerHTML == null) {
+            input.value == 1;
+        }
+        input.value++
+        var newPrice = Number(oldPrice) + Number(price);
+        console.log(newPrice)
+
+        // console.log(newPrice);
+
+        // const format = newPrice.toString.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        document.getElementById('tongtien').innerHTML = newPrice
+        document.getElementById("tong-tien").innerHTML = numberFormat.format(newPrice)
+    }
+    function btnMinutes(min, price, btn) {
+        var oldPrice = document.getElementById('tongtien').innerHTML
+
+        var input = btn.nextElementSibling
+        console.log(input)
+        var soLuong = parseInt(input.value) - 1;
+
+        if (soLuong < parseInt(min)) {
+            soLuong = min;
+        } else {
+            input.value = soLuong;
+            var newPrice = Number(oldPrice) - Number(price);
+            const numberFormat = new Intl.NumberFormat("vi-VN", {
+                style: "currency",
+                currency: "VND",
+            });
+            document.getElementById('tongtien').innerHTML = newPrice
+            document.getElementById("tong-tien").innerHTML = numberFormat.format(newPrice)
+        }
+
+
+    }
+</script>

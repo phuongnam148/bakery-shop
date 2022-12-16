@@ -1,0 +1,97 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<div class="d-none" id="id">
+    <%= un %>
+</div>
+<div class="login">
+    <div class="section">
+        <div class="container">
+            <div class="row full-height justify-content-center">
+                <div class="col-12 text-center align-self-center py-5">
+                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                     
+                        <div class="card-3d-wrap mx-auto">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3">Đổi mật khẩu</h4>
+                                            <form action="/login/Users" name="frmdk" id="myForm" method="post" >
+                                           
+                                                <div class="form-group mt-2">
+                                                    <input type="password" name="password" class="form-style"
+                                                        placeholder="Mật khẩu" id="password" autocomplete="off">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="password" name="password_cfm" class="form-style"
+                                                        placeholder="Nhập Lại Mật khẩu" id="password_cfm" autocomplete="off">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <button  type="submit" class="btn mt-4">Đổi mật khẩu</button>
+                                            </form>
+                                
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function validate(node) {
+        var result = true;
+
+        for (let i = 0; i < node.length; i++) {
+            console.log(node[i].getAttribute("type"));
+            if (node[i].getAttribute("type") == "button") continue;
+
+            if (node[i].value.trim() == "") {
+                showError(node[i]);
+                result = false;
+            }
+        }
+
+        return result;
+    }
+
+    function showError(node) {
+        node.classList.add("error");
+    }
+    function removeError(node) {
+        node.classList.remove("error");
+    }
+
+    function changepass() {
+        var form = document.querySelector("#myForm");
+        if (!validate(form)) return;
+        if (document.frmdk.password.value == document.frmdk.password_cfm.value) {
+            var un = document.getElementById('id').innerText
+            let pw = document.frmdk.password.value;
+            let url = "http://localhost:3000/login/Users/" + un;
+
+            axios.post(url, pw)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .then(function (data) {
+                    alert("Đổi mật khẩu thành công")
+                    // document.frmdk.reset();
+                    // let href = '/home';
+                    // location.href = href;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        } else {
+            alert('Mật khẩu không trùng nhau')
+        }
+
+
+    }
+</script>

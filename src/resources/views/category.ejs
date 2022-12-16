@@ -1,0 +1,46 @@
+<section class="py-5">
+    <div class="container mt-5">
+        <form action="/product/cat" method="get">
+            <input type="text" placeholder="Tìm sản phẩm" name="name">
+            <button type="submit">Tìm</button>
+        </form>
+        <h2 class="fw-bolder mb-4">
+            <% if(products.length > 0){for (let c of category) { %>
+                <% if( c.id==products[0].cat_id) { %>
+                    <a class="display-8 fw-bolder" href="/product/cat/<%= c.id %>">
+                        <%= c.name %>
+                    </a>
+                    <% }} %>
+                        <% } %>
+        </h2>
+        <div class="row row-cols-2 row-cols-xl-3">
+            <% for (let product of products) { %>
+                <div class="col mb-5 hover_zoom">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img style="width: 100%;" class="card-img-top" src="<%= product.imgURL %>" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body text-center">
+                            <div class="menu-item">
+                                <!-- Product name-->
+                                <h6 class="fw-bolder" style="min-height: 50px;">
+                                    <%= product.name %>t
+                                </h6>
+                                <!-- Product price-->
+                                <p class="price">
+                                    <%= product.price.toLocaleString('vi') %> VNĐ
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn-book-a-table" href="/product/<%= product.id %>">Xem
+                                    ngay</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <% } %>
+        </div>
+    </div>
+</section>
