@@ -5,7 +5,7 @@ const express = require('express');
 var session = require('express-session');
 var expressLayouts = require('express-ejs-layouts');
 const app = express();
-const port = 3000;
+const port = 4200;
 
 
 const route = require('./routes');
