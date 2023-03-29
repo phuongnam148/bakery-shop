@@ -1,10 +1,10 @@
 <section class="py-5">
     <div class="container mt-5">
         <form action="/product/cat" method="get">
-            <input type="text" placeholder="Tìm sản phẩm" name="name">
-            <button type="submit">Tìm</button>
+            <input class="p-2 btn-sm w-50" type="text" placeholder="Tìm sản phẩm" name="name">
+            <button type="submit" class="btn btn-danger ml-2 btn ">Tìm</button>
         </form>
-        <h2 class="fw-bolder mb-4">
+        <h2 class="fw-bolder my-4">
             <% if(products.length > 0){for (let c of category) { %>
                 <% if( c.id==products[0].cat_id) { %>
                     <a class="display-8 fw-bolder" href="/product/cat/<%= c.id %>">

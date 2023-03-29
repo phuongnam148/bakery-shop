@@ -6,23 +6,11 @@ const bcrypt = require("bcrypt");
 class LoginController {
     // [GET] /product/:slug
     async login(req, res, next) {
-        category.getAllCat().then(([cat_rows]) => {
-            res.render("login", {
-                category: cat_rows,
-                thongbao: req.params.slug,
-                un: req.session.username,
-            });
-        })
+
     }
     async changepass(req, res, next) {
-        
-        category.getAllCat().then(([cat_rows]) => {
-            res.render("changepass", {
-                category: cat_rows,
-                thongbao: req.params.slug,
-                un: req.session.username,
-            });
-        })
+
+
     }
     postAddUser(req, res) {
         let data = req.body;
@@ -36,7 +24,7 @@ class LoginController {
         let sql = "UPDATE users SET password = ? WHERE username = ?";
         var salt = bcrypt.genSaltSync(10);
         data = bcrypt.hashSync(data, salt);
-        db.query(sql, [data ,req.session.username], (err, d) => {
+        db.query(sql, [data, req.session.username], (err, d) => {
             if (err) throw err;
             res.send('<script>alert("Đổi mật khẩu thành công");window.location.href = "/home";</script> ');
         });
